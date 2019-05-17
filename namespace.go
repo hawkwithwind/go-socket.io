@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"reflect"
 	"sync"
-
-	"github.com/googollee/go-socket.io/parser"
+	
+	"github.com/hawkwithwind/go-socket.io/parser"
 )
 
 type namespaceHandler struct {
@@ -102,6 +102,10 @@ func newNamespaceConn(conn *conn, namespace string) *namespaceConn {
 		namespace: namespace,
 		acks:      sync.Map{},
 	}
+}
+
+func (c *namespaceConn) EioContext() interface{} {
+	return c.conn.Context()
 }
 
 func (c *namespaceConn) SetContext(v interface{}) {
