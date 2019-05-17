@@ -104,6 +104,10 @@ func newNamespaceConn(conn *conn, namespace string) *namespaceConn {
 	}
 }
 
+func (c *namespaceConn) EioContext() interface{} {
+     return c.conn.Context()
+}
+
 func (c *namespaceConn) SetContext(v interface{}) {
 	c.context = v
 }

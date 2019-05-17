@@ -22,6 +22,8 @@ type Conn interface {
 	RemoteAddr() net.Addr
 	RemoteHeader() http.Header
 
+	EioContext() interface{}
+
 	// Context of this connection. You can save one context for one
 	// connection, and share it between all handlers. The handlers
 	// is called in one goroutine, so no need to lock context if it
